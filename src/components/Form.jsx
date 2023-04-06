@@ -2,16 +2,16 @@ import React from "react";
 
 const Form = ({ handleTopicChange, handleExpertiseChange, getGptResponse }) => {
   return (
-    <form className="flex min-sm:flex-row max-sm:flex-col gap-1 mx-auto mt-2 h-10">
+    <div className="flex max-sm:flex-col gap-1 mt-2 mx-auto">
       <div className="flex gap-1">
         <input
           type="text"
           placeholder="Subject"
-          className="border-2 border-black rounded-md h-full p-2"
+          className="border-2 border-black rounded-md h-10 p-2"
           onChange={handleTopicChange}
         />
         <select
-          className="border-2 border-black rounded-md h-full bg-white"
+          className="border-2 border-black rounded-md h-10 bg-white"
           onChange={handleExpertiseChange}
         >
           <option value="">Difficulty</option>
@@ -21,12 +21,12 @@ const Form = ({ handleTopicChange, handleExpertiseChange, getGptResponse }) => {
         </select>
       </div>
       <button
-        className="border-2 px-3 border-black rounded-md hover:bg-green-700 hover:text-white ht-full max-md:bg-green-700"
+        className="border-2 px-3 border-black rounded-md hover:bg-green-700 hover:text-white h-10 max-md:bg-green-700"
         onClick={getGptResponse}
       >
         Get question
       </button>
-    </form>
+    </div>
   );
 };
 
