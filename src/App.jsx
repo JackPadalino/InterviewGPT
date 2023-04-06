@@ -51,14 +51,14 @@ function App() {
   return (
     <div className="flex flex-col px-5">
       {/* welcome message */}
-      <div className="flex items-center justify-center flex-col text-center mt-32 max-sm:mt-20 max-md:mt-10">
+      <div className="flex items-center justify-center flex-col text-center mt-32 max-sm:mt-10 max-md:mt-10">
         <div className="flex items-center gap-2.5">
           <h1 className="text-4xl md:text-7l m-0 p-0 font-bold">
             InterviewGPT
           </h1>
           <img src="/assets/robot.png" alt="" className="w-12 h-12" />
         </div>
-        <p className="text-base md:text-xlfont-medium mt-2">
+        <p className="text-xl md:text-xlfont-medium mt-2">
           Practice interview questions with an expert AI interviewer!
         </p>
       </div>
@@ -73,7 +73,7 @@ function App() {
             onChange={handleTopicChange}
           />
           <select
-            className="border-2 border-black rounded-md h-full"
+            className="border-2 border-black rounded-md h-full bg-white"
             onChange={handleExpertiseChange}
           >
             <option value="">Difficulty</option>
@@ -83,7 +83,7 @@ function App() {
           </select>
         </div>
         <button
-          className="border-2 px-3 border-black rounded-md hover:bg-green-700 hover:text-white ht-10 max-md:bg-green-700"
+          className="border-2 px-3 border-black rounded-md hover:bg-green-700 hover:text-white ht-full max-md:bg-green-700"
           onClick={getGptResponse}
         >
           Get question
