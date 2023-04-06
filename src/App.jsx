@@ -57,7 +57,7 @@ function App() {
           <img src="/assets/robot.png" alt="" className="w-12 h-12" />
         </div>
         <p className="text-base md:text-xlfont-medium mt-1">
-          Prepare for your next job interview with an AI interviewer.
+          Practice interview questions with an expert AI interviewer!
         </p>
       </div>
 
@@ -82,7 +82,7 @@ function App() {
             className="border-2 px-3 border-black rounded-md h-full hover:bg-green-700 hover:text-white"
             onClick={getGptResponse}
           >
-            Submit
+            Get question
           </button>
         </div>
       </div>
