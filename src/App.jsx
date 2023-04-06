@@ -1,8 +1,5 @@
 import { useRef, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-
-import API_KEY from "./env";
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 function App() {
   const [gptMessage, setGptMessage] = useState("");
@@ -38,7 +35,7 @@ function App() {
               to help me prepare. Respond only with the question.`,
             },
           ],
-          temperature: 1, // Temperature sets how random the response should be. Lower means more predictable. Higher means more random.
+          temperature: 1,
         }),
       })
         .then((response) => response.json())
