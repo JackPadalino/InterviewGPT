@@ -20,7 +20,7 @@ function App() {
     if (topic.current === "") {
       setGptMessage("Please enter a topic.");
     } else if (expertise.current === "") {
-      setGptMessage("Please enter a question level.");
+      setGptMessage("Please select a difficulty level.");
     } else {
       setLoading(true);
       await fetch("https://api.openai.com/v1/chat/completions", {
