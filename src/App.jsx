@@ -1,9 +1,8 @@
 import { useRef, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
-import "./App.css";
 
-const API_KEY = "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";
+import API_KEY from "./env";
 
 function App() {
   const [gptMessage, setGptMessage] = useState("");
