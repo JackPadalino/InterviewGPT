@@ -16,7 +16,8 @@ function App() {
     expertise.current = event.target.value;
   };
 
-  const getGptResponse = async () => {
+  const getGptResponse = async (event) => {
+    event.preventDefault();
     if (topic.current === "") {
       setGptMessage("Please enter a topic.");
     } else if (expertise.current === "") {
@@ -48,21 +49,23 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col max-sm:px-5">
-      <div className="flex items-center justify-center flex-col text-center mt-32">
+    <div className="flex flex-col px-5">
+      {/* welcome message */}
+      <div className="flex items-center justify-center flex-col text-center mt-32 max-sm:mt-20 max-md:mt-10">
         <div className="flex items-center gap-2.5">
           <h1 className="text-4xl md:text-7l m-0 p-0 font-bold">
             InterviewGPT
           </h1>
           <img src="/assets/robot.png" alt="" className="w-12 h-12" />
         </div>
-        <p className="text-base md:text-xlfont-medium mt-1">
+        <p className="text-base md:text-xlfont-medium mt-2">
           Practice interview questions with an expert AI interviewer!
         </p>
       </div>
+      {/* form */}
 
-      <div className="flex flex-col">
-        <div className="flex justify-center gap-1 h-10 mt-5">
+      <form className="flex min-sm:flex-row max-sm:flex-col gap-1 mx-auto mt-2 h-10">
+        <div className="flex gap-1">
           <input
             type="text"
             placeholder="Subject"
@@ -78,15 +81,17 @@ function App() {
             <option value="middle">Medium</option>
             <option value="expert">Spicy</option>
           </select>
-          <button
-            className="border-2 px-3 border-black rounded-md h-full hover:bg-green-700 hover:text-white"
-            onClick={getGptResponse}
-          >
-            Get question
-          </button>
         </div>
-      </div>
-      <div className=" flex w-1/2 mx-auto mt-24 justify-center max-sm:w-full">
+        <button
+          className="border-2 px-3 border-black rounded-md hover:bg-green-700 hover:text-white ht-10 max-md:bg-green-700"
+          onClick={getGptResponse}
+        >
+          Get question
+        </button>
+      </form>
+
+      {/* GPT response */}
+      <div className="flex w-1/2 mx-auto max-sm:mt-20 max-md:mt-10 mt-28 justify-center w-full">
         {loading ? (
           <CircularProgress />
         ) : (
