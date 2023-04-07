@@ -38,7 +38,7 @@ function App() {
             {
               role: "user",
               content: `Ask me a ${expertise.current} level interview question about ${topic.current}} 
-              to help me prepare. Respond only with the question.`,
+              to help me prepare for an upcoming interview. Respond only with the question.`,
             },
           ],
           temperature: 1,
