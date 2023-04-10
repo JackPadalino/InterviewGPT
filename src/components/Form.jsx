@@ -1,6 +1,10 @@
 import React from "react";
 
-const Form = ({ handleTopicChange, handleExpertiseChange, getGptResponse }) => {
+const Form = ({
+  handleTopicChange,
+  handleDifficultyChange,
+  getGptResponse,
+}) => {
   return (
     <div className="flex max-sm:flex-col gap-1 mt-2 mx-auto">
       <div className="flex gap-1">
@@ -12,7 +16,7 @@ const Form = ({ handleTopicChange, handleExpertiseChange, getGptResponse }) => {
         />
         <select
           className="border-2 border-black rounded-md h-10 bg-white"
-          onChange={handleExpertiseChange}
+          onChange={handleDifficultyChange}
         >
           <option value="">Difficulty</option>
           <option value="beginner">Mild</option>
