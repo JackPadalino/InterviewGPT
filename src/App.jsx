@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import axios from "axios";
 import Header from "./components/Header";
 import Form from "./components/Form";
 import Response from "./components/Response";
@@ -21,31 +22,34 @@ function App() {
   const getGptResponse = async (event) => {
     event.preventDefault();
     if (topic.current === "") {
-      setGptMessage("Please enter a topic.");
+      setGptMessage("Please enter a subject.");
     } else if (expertise.current === "") {
       setGptMessage("Please select a difficulty level.");
     } else {
       setLoading(true);
-      await fetch("https://api.openai.com/v1/chat/completions", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${API_KEY}`,
-        },
-        body: JSON.stringify({
-          model: "gpt-3.5-turbo",
-          messages: [
-            {
-              role: "user",
-              content: `Ask me a ${expertise.current} level interview question about ${topic.current}} 
-              to help me prepare for an upcoming interview. Respond only with the question.`,
+      await axios
+        .post(
+          "https://api.openai.com/v1/chat/completions",
+          {
+            model: "gpt-3.5-turbo",
+            messages: [
+              {
+                role: "user",
+                content: `Ask me a ${expertise.current} level interview question about ${topic.current}} to help me prepare for an upcoming interview. Respond only with the question.`,
+              },
+            ],
+            temperature: 1,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${API_KEY}`,
             },
-          ],
-          temperature: 1,
-        }),
-      })
-        .then((response) => response.json())
-        .then((data) => setGptMessage(data.choices[0].message.content));
+          }
+        )
+        .then((response) =>
+          setGptMessage(response.data.choices[0].message.content)
+        );
       setLoading(false);
     }
   };
